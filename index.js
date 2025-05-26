@@ -1,16 +1,14 @@
-const { initializeDatabase } = require("../db/db.connect");
+const { initializeDatabase } = require("./db/db.connect");
 const express = require("express");
-const serverless = require("serverless-http");
-
 require("dotenv").config();
 
 const cors = require("cors");
 
-const Product = require("../models/products.model");
-const SubCategory = require("../models/subCategory.model");
-const Categories = require("../models/category.model");
-const Address = require("../models/address.model");
-const Orders = require("../models/orders.model");
+const Product = require("./models/products.model");
+const SubCategory = require("./models/subCategory.model");
+const Categories = require("./models/category.model");
+const Address = require("./models/address.model");
+const Orders = require("./models/orders.model");
 const fs = require("fs");
 const { console } = require("inspector/promises");
 
@@ -497,10 +495,7 @@ app.put("/api/addresses/:addressId", async (req, res) => {
 });
 
 // server run
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => {
-//   console.log("server running on port", PORT);
-// });
-
-module.exports = app;
-module.exports.handler = serverless(app);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log("server running on port", PORT);
+});
