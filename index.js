@@ -127,7 +127,7 @@ app.get("/api/products", async (req, res) => {
   try {
     const allProducts = await readAllProducts();
 
-    if (allProducts.length != 0) {
+    if (allProducts) {
       res.status(200).json({
         data: {
           products: allProducts,
@@ -183,7 +183,7 @@ app.get("/api/categories", async (req, res) => {
   try {
     const categories = await readAllCategories();
 
-    if (categories.length != 0) {
+    if (categories) {
       res.status(200).json({
         data: {
           categories: categories,
