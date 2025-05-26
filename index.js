@@ -9,8 +9,6 @@ const SubCategory = require("./models/subCategory.model");
 const Categories = require("./models/category.model");
 const Address = require("./models/address.model");
 const Orders = require("./models/orders.model");
-const fs = require("fs");
-const { console } = require("inspector/promises");
 
 const app = express();
 app.use(express.json());
@@ -24,8 +22,9 @@ app.use(cors(corsOptions));
 
 initializeDatabase();
 
-const jsonData = fs.readFileSync("./data/products.json", "utf-8");
-const products = JSON.parse(jsonData);
+// const fs = require("fs");
+// const jsonData = fs.readFileSync("./data/products.json", "utf-8");
+// const products = JSON.parse(jsonData);
 
 // function to seed all the products into Db
 function seedProducts(products) {
